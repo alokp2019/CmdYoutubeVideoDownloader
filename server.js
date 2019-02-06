@@ -24,13 +24,14 @@ const rl = require('readline');
       }
 
               //downloads the highest quality and names the title in the directory
-      let outputStreams = ytdl(video_url, { quality: 'highest' }).pipe(
+      const outputStreams = ytdl(video_url, { quality: 'highest' }).pipe(
         fs.createWriteStream(`video_downloads/${video_title.replace(/[^0-9A-Za-z\s]+/gim, '')}.mp4`)
       );
              
            
 
       console.log('Downloading  completed.');
+
 
 
 
@@ -42,7 +43,11 @@ const rl = require('readline');
        console.error(`Error retrieving info from URL.\n${error}`);
       return;
      })
+       
 })
+
+
+
 
 
 
